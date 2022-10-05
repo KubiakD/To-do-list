@@ -9,7 +9,26 @@ html {
 body {
     margin: 0;
 }
+h2
+{ 
+    margin: 0;
+    color: white;
+    font-size: 3rem;
+}
 p {
     color: white;
     font-size: 1.75rem;
+}
+.btn {
+    background-color: var(--yellow);
+    color: var(--dark-grey);
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--lightYellow);
 }

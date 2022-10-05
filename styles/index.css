@@ -1,19 +1,31 @@
-#introduction {
-  background-image: url(/svg/wave-haikei.svg);
-  aspect-ratio: 960/300;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
+.spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-#introduction h1 {
+.background1 {
+  background-image: url(/svg/wave-haikei.svg);
+}
+.background2 {
+    background-color: var(--dark-grey);
+}
+h1 {
   color: var(--yellow);
   margin: 0;
   font-size: 5rem;
+  font-weight: 700;
 }
-#inner-text {
+.inner-text {
     position: absolute;
     width: 60vw;
-    inset: 2rem;
+    top: 2rem;
+    left: 2rem;
+}
+#menu {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
 }
