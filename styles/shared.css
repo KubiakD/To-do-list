@@ -1,0 +1,15 @@
+html {
+    --dark-grey: #202020;
+    --light-grey: #4d4d4d;
+    --yellow: #ffd100;
+    --lightYellow: #ffee32;
+    
+    font-family: 'Lato', sans-serif;
+}
+body {
+    margin: 0;
+}
+p {
+    color: white;
+    font-size: 1.75rem;
+}

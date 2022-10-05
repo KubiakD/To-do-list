@@ -1,0 +1,19 @@
+#introduction {
+  background-image: url(/svg/wave-haikei.svg);
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+#introduction h1 {
+  color: var(--yellow);
+  margin: 0;
+  font-size: 5rem;
+}
+#inner-text {
+    position: absolute;
+    width: 60vw;
+    inset: 2rem;
+}
