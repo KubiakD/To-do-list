@@ -37,6 +37,7 @@ h1 {
 .collapse-title {
   width: 100%;
   padding: 1.25rem 0.625rem;
+  margin-top: 1.25rem;
   background-color: var(--light-grey);
   border: none;
   border-radius: 6px;
