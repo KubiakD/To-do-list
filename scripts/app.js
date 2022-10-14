@@ -1,3 +1,6 @@
+const asideElement = document.getElementById('aside');
+const displayFormBtn = document.querySelector('#menu button');
+
 const expandTitleBtn = document.getElementsByClassName('expand');
 const removeElementBtn = document.getElementsByClassName('delete');
 const collapseContent = document.getElementsByClassName('collapse-content');
@@ -9,7 +12,7 @@ function expandTitle(event) {
 
     selectedElement.classList.toggle('active')
     selectedButton.classList.toggle('activeIcon')
-}
+};
 
 function removeElement(event) {
     const selectedButton = event.target;
@@ -17,7 +20,11 @@ function removeElement(event) {
       selectedButton.parentElement.parentElement.parentElement;
 
     selectedElement.remove();
-}
+};
+
+function displayForm() {
+  asideElement.style.display = 'block';
+};
 
 for ( const button of expandTitleBtn) {
     button.addEventListener('click', expandTitle)
@@ -25,3 +32,4 @@ for ( const button of expandTitleBtn) {
 for (const button of removeElementBtn) {
     button.addEventListener('click', removeElement)
 };
+displayFormBtn.addEventListener('click', displayForm)
