@@ -2,10 +2,11 @@ const expandTitleBtn = document.getElementsByClassName('expand');
 const collapseContent = document.getElementsByClassName('collapse-content');
 
 function expandTitle(event) {
-    const selectedTitle = event.target;
-    const selectedContent = selectedTitle.parentElement.parentElement.nextElementSibling;
+    const selectedButton = event.target;
+    const selectedElement =
+      selectedButton.parentElement.parentElement.parentElement;
 
-    selectedContent.classList.toggle('active')
+    selectedElement.classList.toggle('active')
 }
 
 for ( const button of expandTitleBtn) {
