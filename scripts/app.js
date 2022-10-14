@@ -7,6 +7,7 @@ function expandTitle(event) {
       selectedButton.parentElement.parentElement.parentElement;
 
     selectedElement.classList.toggle('active')
+    selectedButton.classList.toggle('activeIcon')
 }
 
 for ( const button of expandTitleBtn) {

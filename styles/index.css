@@ -1,18 +1,18 @@
 /* background settings  */
 
 .spacer {
-    aspect-ratio: 960/300;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 .background1 {
   background-image: url(/svg/wave-haikei.svg);
 }
 .background2 {
-    background-color: var(--dark-grey);
+  background-color: var(--dark-grey);
 }
 /* general settings */
 
@@ -23,10 +23,10 @@ h1 {
   font-weight: 700;
 }
 .inner-text {
-    position: absolute;
-    width: 60vw;
-    top: 2rem;
-    left: 2rem;
+  position: absolute;
+  width: 60vw;
+  top: 2rem;
+  left: 2rem;
 }
 #menu {
   position: absolute;
@@ -35,22 +35,27 @@ h1 {
 }
 /* icons settings */
 .icons {
-    position: absolute;
-    right: 0.6125rem;
-    top: 1.15rem;
-    display: flex;
+  position: absolute;
+  right: 0.6125rem;
+  top: 1.15rem;
+  display: flex;
 }
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48;
-  cursor: pointer;
-  font-size: 2.5rem;
+.expand, .activeIcon {
+  transition: transform 0.5s;
+}
+.expand {
+  transform: rotate(0);
+}
+.activeIcon {
+  transform: rotate(180deg);
 }
 .delete {
   font-size: 2rem;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  cursor: pointer;
+  font-size: 2.5rem;
 }
 /* accordion settings  */
 
@@ -82,11 +87,11 @@ h1 {
   max-height: 0;
   transition: 0.5s ease;
 }
-.active .collapse-content{
+.active .collapse-content {
   max-height: fit-content;
   padding: 1.25rem 0.625rem;
-  padding-top: 1.85rem; 
+  padding-top: 1.85rem;
   background-color: white;
   border-radius: 0 0 6px 6px;
   margin-top: -0.375rem;
-};
+}
