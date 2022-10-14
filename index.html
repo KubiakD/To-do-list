@@ -19,6 +19,20 @@
 </head>
 
 <body>
+    <div id="form-background"></div>
+    <aside>
+        <form id="form">
+            <label for="title">Tytuł</label>
+            <input type="text" id="title" name="title">
+            <label for="note">Notatka</label>
+            <textarea name="note" id="note" cols="30" rows="10"></textarea>
+            <div id="label-control">
+                <label for="urgent" id="urgent-label">Pilne</label>
+                <input type="checkbox" name="urgent" id="urgent">
+            </div>
+            <button class="btn" id="submit-btn">Dodaj</button>
+        </form>
+    </aside>
     <article class="spacer background1">
         <div class="inner-text">
             <h1>My To Do List</h1>
