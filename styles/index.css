@@ -46,7 +46,9 @@ h1 {
   font-size: 1.5rem;
   text-align: left;
   position: relative;
-  /* poprawić border-radius na ::focus */
+}
+.active .collapse-title {
+  border-radius: 6px 6px 0 0;
 }
 .collapse-content {
   overflow: hidden;
