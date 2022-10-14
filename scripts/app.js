@@ -1,4 +1,5 @@
 const expandTitleBtn = document.getElementsByClassName('expand');
+const removeElementBtn = document.getElementsByClassName('delete');
 const collapseContent = document.getElementsByClassName('collapse-content');
 
 function expandTitle(event) {
@@ -10,6 +11,17 @@ function expandTitle(event) {
     selectedButton.classList.toggle('activeIcon')
 }
 
+function removeElement(event) {
+    const selectedButton = event.target;
+    const selectedElement =
+      selectedButton.parentElement.parentElement.parentElement;
+
+    selectedElement.remove();
+}
+
 for ( const button of expandTitleBtn) {
     button.addEventListener('click', expandTitle)
 }
+for (const button of removeElementBtn) {
+    button.addEventListener('click', removeElement)
+};
