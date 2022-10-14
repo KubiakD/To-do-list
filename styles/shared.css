@@ -32,9 +32,4 @@ p {
 .btn:hover {
     background-color: var(--lightYellow);
 }
-.icons {
-    position: absolute;
-    right: 0.6125rem;
-    top: 1.15rem;
-    display: flex;
-}
+

@@ -1,3 +1,5 @@
+/* background settings  */
+
 .spacer {
     aspect-ratio: 960/300;
     width: 100%;
@@ -12,6 +14,8 @@
 .background2 {
     background-color: var(--dark-grey);
 }
+/* general settings */
+
 h1 {
   color: var(--yellow);
   margin: 0;
@@ -29,6 +33,27 @@ h1 {
   right: 2rem;
   top: 2rem;
 }
+/* icons settings */
+.icons {
+    position: absolute;
+    right: 0.6125rem;
+    top: 1.15rem;
+    display: flex;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+.delete {
+  font-size: 2rem;
+}
+/* accordion settings  */
+
 .accordion {
   margin: 2rem 0;
   list-style: none;
@@ -56,19 +81,6 @@ h1 {
   padding: 0 0.625rem;
   max-height: 0;
   transition: 0.5s ease;
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48;
-  cursor: pointer;
-  font-size: 2.5rem;
-}
-.delete {
-  font-size: 2rem;
 }
 .active .collapse-content{
   max-height: fit-content;
