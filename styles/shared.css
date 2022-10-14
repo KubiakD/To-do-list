@@ -38,15 +38,3 @@ p {
     top: 1.15rem;
     display: flex;
 }
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48;
-    cursor: pointer;
-    font-size: 2.5rem;
-}
-.delete {
-    font-size: 2rem;
-}
