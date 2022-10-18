@@ -109,9 +109,14 @@ aside {
   height: 1.5rem;
   align-self: center;
 }
-#submit-btn {
+#buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+#submit-btn,
+#close-btn {
+  border: 1px solid black;
   width: 40%;
-  margin: 0 auto;
 }
 
 /* accordion settings  */
