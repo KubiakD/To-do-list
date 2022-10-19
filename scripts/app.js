@@ -26,10 +26,14 @@ function displayForm() {
   asideElement.style.display = 'block';
 };
 
+function addEventListeners () {
 for ( const button of expandTitleBtn) {
     button.addEventListener('click', expandTitle)
 }
 for (const button of removeElementBtn) {
     button.addEventListener('click', removeElement)
 };
+};
+
+addEventListeners();
 displayFormBtn.addEventListener('click', displayForm)

@@ -124,7 +124,7 @@ white-space: nowrap;
 
 /* accordion settings  */
 
-.accordion {
+#accordion {
   margin: 2rem 0;
   list-style: none;
   width: 80vw;
