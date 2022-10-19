@@ -3,6 +3,8 @@ const displayFormBtn = document.querySelector('#menu button');
 
 const expandTitleBtn = document.getElementsByClassName('expand');
 const removeElementBtn = document.getElementsByClassName('delete');
+const titleInput = document.getElementById('title');
+const noteInput = document.getElementById('note');
 const collapseContent = document.getElementsByClassName('collapse-content');
 
 function expandTitle(event) {
@@ -24,6 +26,8 @@ function removeElement(event) {
 
 function displayForm() {
   asideElement.style.display = 'block';
+  titleInput.value = '';
+  noteInput.value = '';
 };
 
 function addEventListeners () {
