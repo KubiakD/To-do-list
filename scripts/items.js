@@ -5,7 +5,8 @@ const submitBtn = document.getElementById('submit-btn');
 const closeBtn = document.getElementById('close-btn');
 const itemsList = document.getElementById('accordion');
 
-function closeForm() {
+function closeForm(event) {
+    event.preventDefault();
     asideElement.style.display = 'none';
 };
 
@@ -24,7 +25,8 @@ items.push({
     IsUrgent: IsUrgent
 });
 
-closeForm();
+asideElement.style.display = 'none';
+
 createNewItem();
 };
 
