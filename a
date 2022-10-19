@@ -1,0 +1,77 @@
+[33mcommit e6bbf0af347d7d82256612a9f7e06aeb4c246427[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 19:38:56 2022 +0200
+
+    display form after clicking button
+
+[33mcommit 18b86b6457f268ec7d34f65172bfef8311abf6ca[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 19:31:13 2022 +0200
+
+    add form for adding new elements
+
+[33mcommit 6b9bab241d37f6ecd173ec963c1aa1b5556aacf1[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 18:20:23 2022 +0200
+
+    add deleting items
+
+[33mcommit dcd86f82173fe94346f43224db109b6b002569b4[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 14:41:30 2022 +0200
+
+    add rotate animation to expand button
+
+[33mcommit b51efbfb90a179c9024d6af76f13540d641e1458[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 14:08:40 2022 +0200
+
+    make css files more readable
+
+[33mcommit 822827bfefd33b992801da30e82d673aa08ed253[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 14:04:24 2022 +0200
+
+    change border radius while item is collapsed
+
+[33mcommit 0c922eb069a21557a07a3188d97fda9d6763dc7b[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 14:02:24 2022 +0200
+
+    make changes in collapsing items logic
+
+[33mcommit 5c3c4d54b7b222257e5a6ae6c48177d8661b27b1[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 13:39:27 2022 +0200
+
+    change <button> to <div>
+
+[33mcommit 5e69915f3b5c8713dcbdeffd8b4b6dc979f0abae[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Fri Oct 14 13:30:33 2022 +0200
+
+    create collapse items
+
+[33mcommit 12c4a26bfea68d3b801e26ed16a14fd8fee616af[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Tue Oct 11 13:15:42 2022 +0200
+
+    add top margins for collapse titles
+
+[33mcommit e32659da80de8478997c58d1ab83c0cf88c20acc[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Tue Oct 11 13:13:10 2022 +0200
+
+    add collapse button and content without js scripts
+
+[33mcommit c54979d7ea1813179d96f71a506bde081f19e10e[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Thu Oct 6 00:40:45 2022 +0200
+
+    add main section with button for new tasks
+
+[33mcommit f3157947259205ff1c0dc2024f98877c333ecbbf[m
+Author: Daniel Kubiak <kubiakdaniel97@gmail.com>
+Date:   Wed Oct 5 20:27:31 2022 +0200
+
+    initialize project with already made header

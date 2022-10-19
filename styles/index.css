@@ -104,6 +104,9 @@ aside {
   display: flex;
   justify-content: center;
 }
+#note {
+white-space: nowrap;
+}
 #urgent {
   margin-left: 0.625rem;
   height: 1.5rem;
