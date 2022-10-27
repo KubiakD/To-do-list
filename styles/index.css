@@ -123,14 +123,14 @@ white-space: nowrap;
 }
 #error {
   text-align: center;
-  color: rgb(228, 62, 62);
+  color: var(--red);
   font-size: 1rem;
   font-weight: bold;
   margin:0 auto 0.625rem auto;
   background-color: rgba(178, 105, 105, 0.822);
   width: fit-content;
   padding: 2px;
-  border: 1px rgb(228, 62, 62) solid;
+  border: 1px var(--red) solid;
   border-radius: 2px;
   display: none;
 }
@@ -157,6 +157,9 @@ white-space: nowrap;
 }
 .active .collapse-title {
   border-radius: 6px 6px 0 0;
+}
+.high-priority {
+  color: var(--red);
 }
 .collapse-content {
   overflow: hidden;

@@ -49,20 +49,26 @@ function createNewItem () {
     const iconsDiv = document.createElement('div');
     const deleteSpan = document.createElement('span');
     const expandSpan = document.createElement('span');
+    const highPrioritySpan = document.createElement('span');
     const collapseContentDiv = document.createElement('div');
 
     collapseTitleDiv.classList.add('collapse-title');
     iconsDiv.classList.add('icons')
+    highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority')
     deleteSpan.classList.add('material-symbols-outlined', 'delete');
     expandSpan.classList.add('material-symbols-outlined', 'expand');
     collapseContentDiv.classList.add('collapse-content');
 
     deleteSpan.innerText = 'delete';
     expandSpan.innerText = 'expand_more';
+    highPrioritySpan.innerText = 'priority_high'
     const newItemData = getLastItem();
     collapseTitleDiv.innerText = newItemData.title;
     collapseContentDiv.innerText = newItemData.note;
-
+    
+    if(newItemData.IsUrgent) {
+    iconsDiv.appendChild(highPrioritySpan);
+    };
     iconsDiv.appendChild(deleteSpan);
     iconsDiv.appendChild(expandSpan);
     listItem.appendChild(collapseTitleDiv);
@@ -72,7 +78,6 @@ function createNewItem () {
     if(!newItemData.IsUrgent){
         itemsList.appendChild(listItem);
     } else {
-        console.log('It works!')
         urgentItemsList.appendChild(listItem);
     };
     addEventListeners();
