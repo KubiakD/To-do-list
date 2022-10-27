@@ -4,7 +4,8 @@ const form = document.getElementById('form');
 const errorSpanElement = document.getElementById('error');
 const submitBtn = document.getElementById('submit-btn');
 const closeBtn = document.getElementById('close-btn');
-const itemsList = document.getElementById('accordion');
+const itemsList = document.getElementById('non-urgent');
+const urgentItemsList = document.getElementById('urgent-item');
 
 function closeForm(event) {
     event.preventDefault();
@@ -58,7 +59,7 @@ function createNewItem () {
 
     deleteSpan.innerText = 'delete';
     expandSpan.innerText = 'expand_more';
-    const newItemData = getLastItem()
+    const newItemData = getLastItem();
     collapseTitleDiv.innerText = newItemData.title;
     collapseContentDiv.innerText = newItemData.note;
 
@@ -68,8 +69,12 @@ function createNewItem () {
     collapseTitleDiv.appendChild(iconsDiv);
     listItem.appendChild(collapseContentDiv)
 
-
-    itemsList.appendChild(listItem);
+    if(!newItemData.IsUrgent){
+        itemsList.appendChild(listItem);
+    } else {
+        console.log('It works!')
+        urgentItemsList.appendChild(listItem);
+    };
     addEventListeners();
 };
 
