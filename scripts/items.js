@@ -1,6 +1,7 @@
 const items = [];
 const form = document.getElementById('form');
 
+const errorSpanElement = document.getElementById('error');
 const submitBtn = document.getElementById('submit-btn');
 const closeBtn = document.getElementById('close-btn');
 const itemsList = document.getElementById('accordion');
@@ -19,6 +20,11 @@ const enteredTitle = formData.get('title').trim();
 const enteredItem = formData.get('note').trim();
 const IsUrgent = formData.get('urgent');
 
+if(!enteredTitle || enteredTitle.length === 0) {
+    errorSpanElement.style.display = 'block';
+    return
+};
+
 items.push({
     title: enteredTitle,
     note: enteredItem,
@@ -26,6 +32,7 @@ items.push({
 });
 
 asideElement.style.display = 'none';
+errorSpanElement.style.display = 'none';
 
 createNewItem();
 };
