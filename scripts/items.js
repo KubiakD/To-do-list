@@ -47,19 +47,23 @@ function createNewItem () {
     const listItem = document.createElement('li');
     const collapseTitleDiv = document.createElement('div');
     const iconsDiv = document.createElement('div');
-    const deleteSpan = document.createElement('span');
+    // const deleteSpan = document.createElement('span');
+    const checkboxItem = document.createElement('input');
     const expandSpan = document.createElement('span');
     const highPrioritySpan = document.createElement('span');
     const collapseContentDiv = document.createElement('div');
 
+    checkboxItem.type = 'checkbox';
+
     collapseTitleDiv.classList.add('collapse-title');
     iconsDiv.classList.add('icons')
     highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority')
-    deleteSpan.classList.add('material-symbols-outlined', 'delete');
+    // deleteSpan.classList.add('material-symbols-outlined', 'delete');
+    checkboxItem.classList.add('material-symbols-outlined', 'checkbox');
     expandSpan.classList.add('material-symbols-outlined', 'expand');
     collapseContentDiv.classList.add('collapse-content');
 
-    deleteSpan.innerText = 'delete';
+    // deleteSpan.innerText = 'delete';
     expandSpan.innerText = 'expand_more';
     highPrioritySpan.innerText = 'priority_high'
     const newItemData = getLastItem();
@@ -69,7 +73,8 @@ function createNewItem () {
     if(newItemData.IsUrgent) {
     iconsDiv.appendChild(highPrioritySpan);
     };
-    iconsDiv.appendChild(deleteSpan);
+    // iconsDiv.appendChild(deleteSpan);
+    iconsDiv.appendChild(checkboxItem);
     iconsDiv.appendChild(expandSpan);
     listItem.appendChild(collapseTitleDiv);
     collapseTitleDiv.appendChild(iconsDiv);
