@@ -34,4 +34,28 @@ p {
 .btn:hover {
     background-color: var(--lightYellow);
 }
+.checkbox {
+    appearance: none;
+    height: 1em;
+    width: 1em;
+    background-color: var(--dark-grey);
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkbox:hover {
+    background-color: var(--light-grey);
+}
+.checkbox::after {
+    content: '\e5ca';
+    color: var(--yellow);
+    font-size: 1em;
+    font-weight: bold;
+    display: none;
+}
+.checkbox:checked::after {
+    display: block;
+}
 
