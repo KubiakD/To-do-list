@@ -1,92 +1,130 @@
-const items = [];
-const form = document.getElementById('form');
+function saveItemData(event) {
+  event.preventDefault();
 
-const errorSpanElement = document.getElementById('error');
-const submitBtn = document.getElementById('submit-btn');
-const closeBtn = document.getElementById('close-btn');
-const itemsList = document.getElementById('non-urgent');
-const urgentItemsList = document.getElementById('urgent-item');
+  const formData = new FormData(form);
 
-function closeForm(event) {
-    event.preventDefault();
-    asideElement.style.display = 'none';
-};
+  const enteredTitle = formData.get('title').trim();
+  const enteredItem = formData.get('note').trim();
+  const isUrgent = formData.get('urgent');
+  const itemId = items.length + 1;
 
-function saveItemData (event) {    
-event.preventDefault();
-
-const formData = new FormData(form);
-
-const enteredTitle = formData.get('title').trim();
-const enteredItem = formData.get('note').trim();
-const IsUrgent = formData.get('urgent');
-
-if(!enteredTitle || enteredTitle.length === 0) {
+  if (!enteredTitle || enteredTitle.length === 0) {
     errorSpanElement.style.display = 'block';
-    return
-};
+    return;
+  }
 
-items.push({
+  items.push({
     title: enteredTitle,
     note: enteredItem,
-    IsUrgent: IsUrgent
-});
+    isUrgent: isUrgent,
+    Id: itemId,
+  });
 
-asideElement.style.display = 'none';
-errorSpanElement.style.display = 'none';
+  asideElement.style.display = 'none';
+  errorSpanElement.style.display = 'none';
 
-createNewItem();
-};
-
-function getLastItem () {
-    const [lastItem] = items.slice(-1);
-    return lastItem
+  createNewItem();
 }
 
-function createNewItem () {
-    const listItem = document.createElement('li');
-    const collapseTitleDiv = document.createElement('div');
-    const iconsDiv = document.createElement('div');
-    // const deleteSpan = document.createElement('span');
-    const checkboxItem = document.createElement('input');
-    const expandSpan = document.createElement('span');
-    const highPrioritySpan = document.createElement('span');
-    const collapseContentDiv = document.createElement('div');
+function getLastItem() {
+  const [lastItem] = items.slice(-1);
+  return lastItem;
+}
 
-    checkboxItem.type = 'checkbox';
+function createNewItem() {
+  const listItem = document.createElement('li');
+  const collapseTitleDiv = document.createElement('div');
+  const iconsDiv = document.createElement('div');
+  // const deleteSpan = document.createElement('span');
+  const checkboxItem = document.createElement('input');
+  const expandSpan = document.createElement('span');
+  const highPrioritySpan = document.createElement('span');
+  const collapseContentDiv = document.createElement('div');
 
-    collapseTitleDiv.classList.add('collapse-title');
-    iconsDiv.classList.add('icons')
-    highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority')
-    // deleteSpan.classList.add('material-symbols-outlined', 'delete');
-    checkboxItem.classList.add('material-symbols-outlined', 'checkbox');
-    expandSpan.classList.add('material-symbols-outlined', 'expand');
-    collapseContentDiv.classList.add('collapse-content');
+  checkboxItem.type = 'checkbox';
 
-    // deleteSpan.innerText = 'delete';
-    expandSpan.innerText = 'expand_more';
-    highPrioritySpan.innerText = 'priority_high'
-    const newItemData = getLastItem();
-    collapseTitleDiv.innerText = newItemData.title;
-    collapseContentDiv.innerText = newItemData.note;
-    
-    if(newItemData.IsUrgent) {
+  collapseTitleDiv.classList.add('collapse-title');
+  iconsDiv.classList.add('icons');
+  highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority');
+  // deleteSpan.classList.add('material-symbols-outlined', 'delete');
+  checkboxItem.classList.add('material-symbols-outlined', 'checkbox');
+  expandSpan.classList.add('material-symbols-outlined', 'expand');
+  collapseContentDiv.classList.add('collapse-content');
+
+  // deleteSpan.innerText = 'delete';
+  expandSpan.innerText = 'expand_more';
+  highPrioritySpan.innerText = 'priority_high';
+  const newItemData = getLastItem();
+  collapseTitleDiv.innerText = newItemData.title;
+  collapseContentDiv.innerText = newItemData.note;
+  listItem.dataset.id = newItemData.Id;
+
+  if (newItemData.isUrgent) {
     iconsDiv.appendChild(highPrioritySpan);
-    };
-    // iconsDiv.appendChild(deleteSpan);
-    iconsDiv.appendChild(checkboxItem);
-    iconsDiv.appendChild(expandSpan);
-    listItem.appendChild(collapseTitleDiv);
-    collapseTitleDiv.appendChild(iconsDiv);
-    listItem.appendChild(collapseContentDiv)
+  }
+  // iconsDiv.appendChild(deleteSpan);
+  iconsDiv.appendChild(checkboxItem);
+  iconsDiv.appendChild(expandSpan);
+  listItem.appendChild(collapseTitleDiv);
+  collapseTitleDiv.appendChild(iconsDiv);
+  listItem.appendChild(collapseContentDiv);
 
-    if(!newItemData.IsUrgent){
-        itemsList.appendChild(listItem);
-    } else {
-        urgentItemsList.appendChild(listItem);
-    };
-    addEventListeners();
-};
+  if (!newItemData.isUrgent) {
+    nonUrgentTasksList.appendChild(listItem);
+  } else {
+    urgentTasksList.appendChild(listItem);
+  }
+  addEventListeners();
+}
 
-closeBtn.addEventListener('click', closeForm)
-submitBtn.addEventListener('click', saveItemData);
+function addEventListeners() {
+  for (const button of expandTitleBtn) {
+    button.addEventListener('click', expandTitle);
+  }
+  for (const button of removeElementBtn) {
+    button.addEventListener('click', removeElement);
+  }
+  for (const checkbox of taskCheckboxItems) {
+    checkbox.addEventListener('input', assignToList);
+  }
+}
+
+function expandTitle(event) {
+  const selectedButton = event.target;
+  const selectedElement =
+    selectedButton.parentElement.parentElement.parentElement;
+
+  selectedElement.classList.toggle('active');
+  selectedButton.classList.toggle('activeIcon');
+}
+
+function assignToList(event) {
+  const selectedElement =
+    event.target.parentElement.parentElement.parentElement;
+  const selectedElementId = selectedElement.dataset.id;
+  const selectedElementData = items[selectedElementId - 1];
+
+  if (!doneTasksList.contains(selectedElement)) {
+    doneTasksList.appendChild(selectedElement);
+  } else if (
+    doneTasksList.contains(selectedElement) &&
+    selectedElementData.isUrgent
+  ) {
+    urgentTasksList.appendChild(selectedElement);
+  } else if (
+    doneTasksList.contains(selectedElement) &&
+    !selectedElementData.isUrgent
+  ) {
+    nonUrgentTasksList.appendChild(selectedElement);
+  } else {
+    console.log('Error!');
+  }
+}
+
+function removeElement(event) {
+  const selectedButton = event.target;
+  const selectedElement =
+    selectedButton.parentElement.parentElement.parentElement;
+
+  selectedElement.remove();
+}
