@@ -34,3 +34,4 @@ function closeForm(event) {
 
 displayFormBtn.addEventListener('click', displayForm);
 submitBtn.addEventListener('click', saveItemData);
+closeBtn.addEventListener('click', closeForm);
