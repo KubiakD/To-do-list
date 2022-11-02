@@ -12,7 +12,7 @@ const removeElementBtn = document.getElementsByClassName('delete');
 const titleInput = document.getElementById('title');
 const noteInput = document.getElementById('note');
 const collapseContent = document.getElementsByClassName('collapse-content');
-const taskCheckboxItems = document.getElementsByClassName('checkbox');
+const taskCheckboxItems = document.getElementsByClassName('task-checkbox');
 
 const items = [];
 

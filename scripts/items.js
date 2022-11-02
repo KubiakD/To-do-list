@@ -45,7 +45,7 @@ function createNewItem() {
   collapseTitleDiv.classList.add('collapse-title');
   iconsDiv.classList.add('icons');
   highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority');
-  checkboxItem.classList.add('material-symbols-outlined', 'checkbox');
+  checkboxItem.classList.add('material-symbols-outlined','task-checkbox' ,'checkbox');
   expandSpan.classList.add('material-symbols-outlined', 'expand');
   collapseContentDiv.classList.add('collapse-content');
   
