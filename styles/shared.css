@@ -1,6 +1,6 @@
 html {
-    --dark-grey: #202020;
-    --light-grey: #4d4d4d;
+    --dark-gray: #202020;
+    --light-gray: #4d4d4d;
     --yellow: #ffd100;
     --lightYellow: #ffee32;
     --red: #e43e3e;
@@ -9,7 +9,11 @@ html {
 }
 body {
     margin: 0;
-    background-color: var(--dark-grey);
+    background-image: url(/svg/layered-peaks-haikeii.svg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 h2
 { 
@@ -20,10 +24,11 @@ h2
 p {
     color: white;
     font-size: 1.75rem;
+    margin: 0;
 }
 .btn {
     background-color: var(--yellow);
-    color: var(--dark-grey);
+    color: var(--dark-gray);
     padding: 1rem;
     border-radius: 4px;
     font-family: inherit;
@@ -38,7 +43,7 @@ p {
     appearance: none;
     height: 1.5rem;
     width: 1.5rem;
-    background-color: var(--light-grey);
+    background-color: var(--light-gray);
     border: 2px solid black;
     border-radius: 4px;
     display: flex;
@@ -46,7 +51,7 @@ p {
     align-items: center;
 }
 .checkbox:hover {
-    background-color: var(--dark-grey);
+    background-color: var(--dark-gray);
 }
 .checkbox::after {
     content: '\e5ca';
