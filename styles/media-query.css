@@ -1,0 +1,42 @@
+@media(max-width: 48rem) {
+    body {
+        background-image: url(/svg/background-phone.svg);
+    }
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    p {
+        font-size: 1.25rem;
+    }
+    .inner-text {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #menu {
+        text-align: center;
+    }
+    #form {
+        padding: 0.5rem;
+        top: 15%;
+        left: 50%;
+        right: 15%;
+        width: 60%;
+        transform: translate(-50%, -15%);
+    }
+    #form input:not([type='checkbox']), 
+    #form textarea {
+        width: 90%;
+    }
+    #buttons .btn {
+        font-size: 1rem;
+    }
+    #submit-btn,
+    #close-btn {
+    width: fit-content;
+    }
+    .accordion {
+        padding: 0;
+        margin: 2rem auto;
+    }
+}
