@@ -17,7 +17,8 @@ body {
     background-position: center;
     background-size: cover;
 }
-h2
+h2,
+h3
 { 
     margin: 0;
     color: white;
@@ -65,4 +66,14 @@ p {
 .checkbox:checked::after {
     display: block;
 }
-
+footer {
+    padding: 0.625rem;
+    margin-top: 100px;
+}
+.footer-icons {
+    width: 5rem;
+    object-fit: cover;
+    margin-top: 1.25rem;
+    margin-right: 1.25rem;
+    color: white;
+}
