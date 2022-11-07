@@ -14,11 +14,11 @@ const noteInput = document.getElementById('note');
 const collapseContent = document.getElementsByClassName('collapse-content');
 const taskCheckboxItems = document.getElementsByClassName('task-checkbox');
 
-const items = [];
+const tasks = [];
 
 // Task lists 
-const doneTasksList = document.getElementById('done-items');
-const urgentTasksList = document.getElementById('urgent-item');
+const doneTasksList = document.getElementById('done-tasks');
+const urgentTasksList = document.getElementById('urgent-tasks');
 const nonUrgentTasksList = document.getElementById('non-urgent');
 
 function displayForm() {

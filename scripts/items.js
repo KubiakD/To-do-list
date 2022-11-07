@@ -6,32 +6,32 @@ function saveItemData(event) {
   const enteredTitle = formData.get('title').trim();
   const enteredItem = formData.get('note').trim();
   const isUrgent = formData.get('urgent');
-  const itemId = items.length + 1;
+  const taskId = tasks.length + 1;
 
   if (!enteredTitle || enteredTitle.length === 0) {
     errorSpanElement.style.display = 'block';
     return;
   }
 
-  items.push({
+  tasks.push({
     title: enteredTitle,
     note: enteredItem,
     isUrgent: isUrgent,
-    Id: itemId,
+    Id: taskId,
   });
 
   asideElement.style.display = 'none';
   errorSpanElement.style.display = 'none';
 
-  createNewItem();
+  createNewTask();
 }
 
-function getLastItem() {
-  const [lastItem] = items.slice(-1);
-  return lastItem;
+function getLastTask() {
+  const [lastTask] = tasks.slice(-1);
+  return lastTask;
 }
 
-function createNewItem() {
+function createNewTask() {
   const listItem = document.createElement('li');
   const collapseTitleDiv = document.createElement('div');
   const iconsDiv = document.createElement('div');
@@ -51,12 +51,12 @@ function createNewItem() {
   
   expandSpan.innerText = 'expand_more';
   highPrioritySpan.innerText = 'priority_high';
-  const newItemData = getLastItem();
-  collapseTitleDiv.innerText = newItemData.title;
-  collapseContentDiv.innerText = newItemData.note;
-  listItem.dataset.id = newItemData.Id;
+  const newTaskData = getLastTask();
+  collapseTitleDiv.innerText = newTaskData.title;
+  collapseContentDiv.innerText = newTaskData.note;
+  listItem.dataset.id = newTaskData.Id;
   
-  if (newItemData.isUrgent) {
+  if (newTaskData.isUrgent) {
     iconsDiv.appendChild(highPrioritySpan);
   }
   iconsDiv.appendChild(checkboxItem);
@@ -65,7 +65,7 @@ function createNewItem() {
   collapseTitleDiv.appendChild(iconsDiv);
   listItem.appendChild(collapseContentDiv);
   
-  if (!newItemData.isUrgent) {
+  if (!newTaskData.isUrgent) {
     nonUrgentTasksList.appendChild(listItem);
   } else {
     urgentTasksList.appendChild(listItem);
@@ -87,34 +87,34 @@ function addEventListeners() {
 
 function expandTitle(event) {
   const selectedButton = event.target;
-  const selectedElement =
+  const selectedTask =
   selectedButton.parentElement.parentElement.parentElement;
   
-  selectedElement.classList.toggle('active');
+  selectedTask.classList.toggle('active');
   selectedButton.classList.toggle('activeIcon');
 }
 
 function assignToList(event) {
-  const selectedElementIconDiv = event.target.parentElement;
-  const selectedElement = event.target.parentElement.parentElement.parentElement;
-  const selectedElementId = selectedElement.dataset.id;
-  const selectedElementData = items[selectedElementId - 1];
+  const selectedTaskIconDiv = event.target.parentElement;
+  const selectedTask = event.target.parentElement.parentElement.parentElement;
+  const selectedTaskId = selectedTask.dataset.id;
+  const selectedTaskData = tasks[selectedTaskId - 1];
   
-  if (!doneTasksList.contains(selectedElement)) {
-    addDeleteIcon(selectedElementIconDiv);
-    doneTasksList.appendChild(selectedElement);
+  if (!doneTasksList.contains(selectedTask)) {
+    addDeleteIcon(selectedTaskIconDiv);
+    doneTasksList.appendChild(selectedTask);
   } else if (
-    doneTasksList.contains(selectedElement) &&
-    selectedElementData.isUrgent
+    doneTasksList.contains(selectedTask) &&
+    selectedTaskData.isUrgent
   ) {
-    urgentTasksList.appendChild(selectedElement);
-    selectedElementIconDiv.lastChild.remove();
+    urgentTasksList.appendChild(selectedTask);
+    selectedTaskIconDiv.lastChild.remove();
   } else if (
-    doneTasksList.contains(selectedElement) &&
-    !selectedElementData.isUrgent
+    doneTasksList.contains(selectedTask) &&
+    !selectedTaskData.isUrgent
   ) {
-    nonUrgentTasksList.appendChild(selectedElement);
-    selectedElementIconDiv.lastChild.remove();
+    nonUrgentTasksList.appendChild(selectedTask);
+    selectedTaskIconDiv.lastChild.remove();
   } else {
     console.log('Error!');
   };  
@@ -126,11 +126,11 @@ function addDeleteIcon(taskItem) {
   deleteSpan.classList.add('material-symbols-outlined', 'delete');
   deleteSpan.innerText = 'delete';
   taskItem.appendChild(deleteSpan);  
-  deleteSpan.addEventListener('click', removeElement);
+  deleteSpan.addEventListener('click', removeTask);
 };
     
-function removeElement(event) {
+function removeTask(event) {
   const selectedButton = event.target;
-  const selectedElement = selectedButton.parentElement.parentElement.parentElement;    
-  selectedElement.remove();
+  const selectedTask = selectedButton.parentElement.parentElement.parentElement;    
+  selectedTask.remove();
     }
