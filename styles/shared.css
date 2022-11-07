@@ -69,6 +69,7 @@ p {
 footer {
     padding: 0.625rem;
     margin-top: 100px;
+    text-align: center;
 }
 .footer-icons {
     width: 5rem;
