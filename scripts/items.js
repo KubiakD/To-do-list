@@ -5,6 +5,7 @@ function saveItemData(event) {
 
   const enteredTitle = formData.get('title').trim();
   const enteredItem = formData.get('note').trim();
+  const timestamp = new Date();
   const isUrgent = formData.get('urgent');
   const taskId = tasks.length + 1;
 
@@ -13,9 +14,18 @@ function saveItemData(event) {
     return;
   }
 
+  const convertedTimestamp = timestamp.toLocaleDateString("pl", {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
   tasks.push({
     title: enteredTitle,
     note: enteredItem,
+    timestamp: convertedTimestamp,
     isUrgent: isUrgent,
     Id: taskId,
   });
@@ -39,6 +49,7 @@ function createNewTask() {
   const expandSpan = document.createElement('span');
   const highPrioritySpan = document.createElement('span');
   const collapseContentDiv = document.createElement('div');
+  const collapseTimestampDiv = document.createElement('div');
   
   checkboxItem.type = 'checkbox';
 
@@ -48,12 +59,14 @@ function createNewTask() {
   checkboxItem.classList.add('material-symbols-outlined','task-checkbox' ,'checkbox');
   expandSpan.classList.add('material-symbols-outlined', 'expand');
   collapseContentDiv.classList.add('collapse-content');
+  collapseTimestampDiv.classList.add('collapse-timestamp');
   
   expandSpan.innerText = 'expand_more';
   highPrioritySpan.innerText = 'priority_high';
   const newTaskData = getLastTask();
   collapseTitleDiv.innerText = newTaskData.title;
   collapseContentDiv.innerText = newTaskData.note;
+  collapseTimestampDiv.innerText = `Dodano ${newTaskData.timestamp}`;
   listItem.dataset.id = newTaskData.Id;
   
   if (newTaskData.isUrgent) {
@@ -64,6 +77,7 @@ function createNewTask() {
   listItem.appendChild(collapseTitleDiv);
   collapseTitleDiv.appendChild(iconsDiv);
   listItem.appendChild(collapseContentDiv);
+  collapseContentDiv.appendChild(collapseTimestampDiv);
   
   if (!newTaskData.isUrgent) {
     nonUrgentTasksList.appendChild(listItem);
