@@ -43,41 +43,24 @@ function getLastTask() {
 
 function createNewTask() {
   const listItem = document.createElement('li');
-  const collapseTitleDiv = document.createElement('div');
-  const iconsDiv = document.createElement('div');
-  const checkboxItem = document.createElement('input');
-  const expandSpan = document.createElement('span');
-  const highPrioritySpan = document.createElement('span');
-  const collapseContentDiv = document.createElement('div');
-  const collapseTimestampDiv = document.createElement('div');
-  
-  checkboxItem.type = 'checkbox';
-
-  collapseTitleDiv.classList.add('collapse-title');
-  iconsDiv.classList.add('icons');
-  highPrioritySpan.classList.add('material-symbols-outlined', 'high-priority');
-  checkboxItem.classList.add('material-symbols-outlined','task-checkbox' ,'checkbox');
-  expandSpan.classList.add('material-symbols-outlined', 'expand');
-  collapseContentDiv.classList.add('collapse-content');
-  collapseTimestampDiv.classList.add('collapse-timestamp');
-  
-  expandSpan.innerText = 'expand_more';
-  highPrioritySpan.innerText = 'priority_high';
   const newTaskData = getLastTask();
-  collapseTitleDiv.innerText = newTaskData.title;
-  collapseContentDiv.innerText = newTaskData.note;
-  collapseTimestampDiv.innerText = `Dodano ${newTaskData.timestamp}`;
-  listItem.dataset.id = newTaskData.Id;
   
-  if (newTaskData.isUrgent) {
-    iconsDiv.appendChild(highPrioritySpan);
-  }
-  iconsDiv.appendChild(checkboxItem);
-  iconsDiv.appendChild(expandSpan);
-  listItem.appendChild(collapseTitleDiv);
-  collapseTitleDiv.appendChild(iconsDiv);
-  listItem.appendChild(collapseContentDiv);
-  collapseContentDiv.appendChild(collapseTimestampDiv);
+  listItem.dataset.id = newTaskData.Id;
+
+  const urgentIcon = newTaskData.isUrgent ? 'priority_high' : '';
+
+  const listElementContent = `
+  <div class="collapse-title">${newTaskData.title}
+        <div class="icons">
+        <span class="material-symbols-outlined high-priority">${urgentIcon}</span>
+        <input type="checkbox" class="material-symbols-outlined task-checkbox checkbox">
+        <span class="material-symbols-outlined expand">expand_more</span>
+    </div>
+</div>
+<div class="collapse-content">${newTaskData.note}<div class="collapse-timestamp">Dodano ${newTaskData.timestamp}</div>
+</div>`;
+
+listItem.innerHTML= listElementContent;
   
   if (!newTaskData.isUrgent) {
     nonUrgentTasksList.appendChild(listItem);
